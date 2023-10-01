@@ -12,7 +12,7 @@ export async function getUserDataById(userId) {
         password: false,
       }
     });
-    if (user) return { statusCode: 200, data: { user }}
+    if (user) return { statusCode: 200, data: { user } }
     throw { statusCode: 400, message: "Não foi possível obter os dados" };
   } catch (error) {
     if (error.statusCode === 400) {
@@ -42,7 +42,7 @@ export async function createUser(body) {
       },
     });
 
-    return { statusCode: 200, data: { ...user, password } };
+    return { statusCode: 201, data: { ...user, password } };
   } catch (error) {
     if (error instanceof Prisma.PrismaClientKnownRequestError) {
       if (error.code === "P2002") {

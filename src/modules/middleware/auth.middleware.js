@@ -5,7 +5,7 @@ dotenv.config();
 const authMiddleware = async (req, res, next) => {
   try {
     const token = req.headers.authorization.replace('Bearer ','');
-    console.log('token', token);
+
     if (!token) {
       res.send({ message: "Token não fornecido" }).status(401);
       return;
