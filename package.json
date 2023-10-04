@@ -8,6 +8,9 @@
   "license": "MIT",
   "private": false,
   "type": "module",
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
   "scripts": {
     "start": "tsx watch app.js"
   },
