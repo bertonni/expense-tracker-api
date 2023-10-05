@@ -8,7 +8,7 @@ export async function getExpensesByUser(userId) {
       },
     });
 
-    if (expenses) return { statusCode: 200, data: { expenses } };
+    if (expenses) return { statusCode: 200, data: { expenses, message: 'Despesa adicionada com sucesso' } };
     throw { statusCode: 400, message: "Não sei oq houve" };
   } catch (error) {
     if (error.statusCode === 400) {

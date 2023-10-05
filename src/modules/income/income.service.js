@@ -8,7 +8,11 @@ export async function getIncomesByUser(userId) {
       },
     });
 
-    if (incomes) return { statusCode: 200, data: { incomes } };
+    if (incomes)
+      return {
+        statusCode: 200,
+        data: { incomes, message: "Receita adicionada com sucesso" },
+      };
     throw { statusCode: 400, message: "Não sei oq houve" };
   } catch (error) {
     if (error.statusCode === 400) {
@@ -26,7 +30,7 @@ export async function deleteIncome(userId, incomeId) {
     const deleted = await prisma.incomes.delete({
       where: {
         id: incomeId,
-        userId
+        userId,
       },
     });
 
@@ -58,12 +62,17 @@ export async function createIncome(body) {
         title,
         amount,
         reference,
-        userId
-      }
+        userId,
+      },
     });
 
-    if (income) return { statusCode: 201, message: "Receita adicionada com sucesso!" };
-    throw { statusCode: 400, message: "Houve um erro ao adicionar a receita!" }
+    if (income) {
+      return {
+        statusCode: 201,
+        data: { message: "Receita adicionada com sucesso!" },
+      };
+    }
+    throw { statusCode: 400, message: "Houve um erro ao adicionar a receita!" };
   } catch (error) {
     if (error.statusCode === 400) {
       throw { statusCode: error.statusCode, message: error.message };

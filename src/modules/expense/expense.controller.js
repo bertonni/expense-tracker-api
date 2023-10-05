@@ -45,7 +45,7 @@ expenseRouter.delete("/expense/:id", authMiddleware, async (req, res) => {
 expenseRouter.post("/expenses/add", authMiddleware, async (req, res) => {
   try {
     const response = await createExpense(req.body);
-    return res.send(response.message).status(response.statusCode);
+    return res.send(response.data).status(response.statusCode);
   } catch (error) {
     console.log("err", error);
     if (error?.statusCode === 400)
