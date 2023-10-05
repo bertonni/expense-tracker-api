@@ -21,6 +21,34 @@ export async function getIncomesByUser(userId) {
   }
 }
 
+export async function deleteIncome(userId, incomeId) {
+  try {
+    const deleted = await prisma.incomes.delete({
+      where: {
+        id: incomeId,
+        userId
+      },
+    });
+
+    if (deleted) {
+      return {
+        statusCode: 200,
+        data: { message: "Receita removida com sucesso!" },
+      };
+    }
+    throw { statusCode: 400, message: "Não sei oq houve" };
+  } catch (error) {
+    if (error.statusCode === 400) {
+      throw { statusCode: error.statusCode, message: error.message };
+    } else {
+      throw {
+        statusCode: 500,
+        message: "Erro interno do servidor. Por favor, contate o suporte!",
+      };
+    }
+  }
+}
+
 export async function createIncome(body) {
   const { title, amount, reference, userId } = body;
 
