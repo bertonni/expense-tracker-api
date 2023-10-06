@@ -60,9 +60,6 @@ async function main() {
       name: "Educação",
     },
     {
-      name: "Estudos",
-    },
-    {
       name: "Fast Food",
     },
     {
