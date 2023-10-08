@@ -17,8 +17,8 @@ CREATE TABLE "Expenses" (
     "date" TEXT NOT NULL,
     "reference" TEXT NOT NULL,
     "paymentMethod" TEXT NOT NULL,
-    "installments" INTEGER,
     "userId" TEXT NOT NULL,
+    "additionalInfo" TEXT,
 
     CONSTRAINT "Expenses_pkey" PRIMARY KEY ("id")
 );

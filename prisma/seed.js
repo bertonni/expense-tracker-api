@@ -53,32 +53,21 @@ async function main() {
   });
 
   const data = [
-    {
-      name: "Alimentação",
-    },
-    {
-      name: "Educação",
-    },
-    {
-      name: "Fast Food",
-    },
-    {
-      name: "Lazer",
-    },
-    {
-      name: "Moradia",
-    },
-    {
-      name: "Transporte",
-    },
+    "Alimentação",
+    "Educação",
+    "Fast Food",
+    "Lazer",
+    "Moradia",
+    "Transporte",
   ];
 
   data.map(async (item) => {
     await prisma.categories.create({
-      data: item,
+      data: {
+        name: item,
+      },
     });
-  })
-
+  });
 }
 
 main()
