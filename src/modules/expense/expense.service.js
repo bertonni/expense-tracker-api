@@ -61,7 +61,7 @@ export async function createExpense(body) {
     amount,
     reference,
     paymentMethod,
-    installments,
+    additionalInfo,
     userId,
   } = body;
 
@@ -74,7 +74,7 @@ export async function createExpense(body) {
         amount,
         reference,
         paymentMethod,
-        installments,
+        additionalInfo,
         userId,
       },
     });
