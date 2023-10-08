@@ -36,7 +36,7 @@ async function main() {
             amount: 25.78,
             category: "Alimentação",
             paymentMethod: "Pix",
-            installments: 1,
+            additionalInfo: null,
           },
           {
             title: "Mercado Tavares",
@@ -45,7 +45,7 @@ async function main() {
             amount: 107.44,
             category: "Alimentação",
             paymentMethod: "Cartão de ",
-            installments: 1,
+            additionalInfo: null,
           },
         ],
       },

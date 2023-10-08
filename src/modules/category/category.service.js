@@ -10,6 +10,7 @@ export async function getCategories() {
     if (error.statusCode === 400) {
       throw { statusCode: error.statusCode, message: error.message };
     }
+    console.log('get categ',error);
     throw {
       statusCode: 500,
       message: "Erro interno do servidor. Por favor, contate o suporte!",

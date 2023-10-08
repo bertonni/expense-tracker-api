@@ -18,6 +18,7 @@ export async function getUserDataById(userId) {
     if (error.statusCode === 400) {
       throw { statusCode: error.statusCode, message: error.message };
     }
+    console.log("get user-data", error);
     throw {
       statusCode: 500,
       message: `Erro interno do servidor. Por favor, contate o suporte!`,
